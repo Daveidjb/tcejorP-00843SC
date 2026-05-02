@@ -1,0 +1,8 @@
+Throughout this project I used AI on a couple of things to make the proscess easier.
+I used claude for most of the code creation/modification and I used chat for all the specific questions I had.
+
+The first and biggest thing I used claude for is creating the HTML files for this. I dont really know how to make UI look good so having Claude help made it much easier to test if my code was working, as well as made the site look much better in general than if I had done it myself. It was easy to look at afterwards and see what the HTMLs were doing and easy to go to the website to check to see how it looks.
+
+The second thing I used claude for was to debbug my code that was not working. I have not used Django ORM before this so i got the syntax wrong or made some small mistakes that Claude would be able to isolate and tell me what was wrong. 
+
+The third thing I used Chat for was clarifying some concepts i was a little confused with. This esspecially helped with part 3 before we were taught the information in class I wanted to know what I would have to do in the future for part 3 when I was designing part 2, so havinv Chat give a quick summary was very helpful before we formally learned in class.

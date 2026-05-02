@@ -1,0 +1,49 @@
+{% extends "club/base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>All Readings</h2>
+  <a href="{% url 'reading_create' %}" class="btn btn-success">+ Add Reading</a>
+</div>
+
+<table class="table table-bordered table-hover bg-white">
+  <thead class="table-dark">
+    <tr>
+      <th>Member</th>
+      <th>Book</th>
+      <th>Author</th>
+      <th>Status</th>
+      <th>Rating</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in readings %}
+    <tr>
+      <td>{{ r.member }}</td>
+      <td>{{ r.book.title }}</td>
+      <td>{{ r.book.author }}</td>
+      <td>
+        {% if r.status == 'completed' %}
+          <span class="badge bg-success">Completed</span>
+        {% elif r.status == 'reading' %}
+          <span class="badge bg-primary">Reading</span>
+        {% else %}
+          <span class="badge bg-secondary">Dropped</span>
+        {% endif %}
+      </td>
+      <td>{{ r.rating|default:"—" }}</td>
+      <td>{{ r.start_date }}</td>
+      <td>{{ r.end_date|default:"—" }}</td>
+      <td>
+        <a href="{% url 'reading_edit' r.pk %}" class="btn btn-sm btn-warning">Edit</a>
+        <a href="{% url 'reading_delete' r.pk %}" class="btn btn-sm btn-danger">Delete</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="8" class="text-center">No readings yet.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
