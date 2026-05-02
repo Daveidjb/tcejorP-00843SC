@@ -1,0 +1,9 @@
+runtime: python312
+
+entrypoint: python manage.py migrate && python manage.py loaddata_custom && gunicorn bookclub.wsgi:application
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: bookclub.settings
+
+beta_settings:
+  cloud_sql_instances: bookclub-djbur-2026:us-central1:bookclub-db
